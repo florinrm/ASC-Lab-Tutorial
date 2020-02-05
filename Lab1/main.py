@@ -14,6 +14,15 @@ def main():
     b = int(input())
     print("a + b = " + str(a + b))
 
+    # lists
+    l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    print(l)
+    l.pop() # se sterge ultimul element
+    print(l)
+    l.append(69)
+    print(l)
+
+
 
 
 if __name__ == '__main__':
