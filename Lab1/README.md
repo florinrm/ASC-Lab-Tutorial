@@ -141,3 +141,8 @@ d = dict() # dictionar gol
 d1 = {} # dictionar gol
 d2 = {4: 7, 'pikachu': 'raichu'} # dictionar initializat cu valori de tip cheie-valoare
 ```
+
+### Cheatsheets
+https://www.pythoncheatsheet.org/
+
+Aveți cheatsheets în plus în folder-ul Cheatsheets.
