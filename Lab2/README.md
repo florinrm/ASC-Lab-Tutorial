@@ -72,5 +72,45 @@ class B(A):
 
 ## Folosirea de thread-uri in Python
 ### Clasa Thread
+- pentru a crea thread-uri în Python, putem proceda în mod similar, ca în Java: moștenind clasa Thread și suprascriind metoda run. De reținut este că trebuie importat modulul threading.
+- Exemplu:
+```python
+from threading import Thread
 
+class MyThread(Thread):
+    def __init__(self, tid):
+        Thread.__init__(self)
+        self.tid = tid
+
+    def run(self):
+        print("Thread with id %d" %(self.tid))
+
+def main():
+    thread1 = MyThread(1)
+    thread2 = MyThread(2)
+    
+    thread1.start()
+    thread2.start()
+
+    thread1.join()
+    thread2.join()
+
+
+if __name__ == '__main__':
+    main()
+```
 ### Lock
+- Exemplu de folosire:
+```python
+from threading import Lock
+
+lock = Lock()
+
+# varianta 1
+lock.acquire()
+# do stuff
+lock.release()
+
+# varianta 2
+with lock:
+    # do stuff
