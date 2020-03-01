@@ -4,9 +4,9 @@ Un event reprezinta un element de sincronizare, care functioneaza in felul urmat
 - thread-urile se blocheaza voluntar (sunt in starea waiting) pana cand un alt thread semnaleaza aparitia unui eveniment - o conditie sa aiba valoarea true (comportament similar cu bariera) - pe scurt, un event functioneaza ca un wake-up al thread-urilor din starea waiting
 - un event poate inlocui un semafor (mai multe thread-uri pot fi blocate si deblocate in acelasi timp)
 ## Condition
-Un condition functioneaza similar cu un event, adica thread-urile sunt blocate in mod voluntar (se afla in waiting) pana cand se semnaleaza o conditie adevarata de catre un thread.
+- un condition functioneaza similar cu un event, adica thread-urile sunt blocate in mod voluntar (se afla in waiting) pana cand se semnaleaza o conditie adevarata de catre un thread.
 
-Diferenta fata de un event este ca aici se foloseste un Lock (sau RLock). La constructor se poate da ca parametru un Lock sau un RLock (mai ales daca se creeaza mai multe obiecte Condition, cu un lock partajat). Daca la constructor nu se paseaza un Lock / RLock, este creat automat un RLock.
+- diferenta fata de un event este ca aici se foloseste un Lock (sau RLock). La constructor se poate da ca parametru un Lock sau un RLock (mai ales daca se creeaza mai multe obiecte Condition, cu un lock partajat). Daca la constructor nu se paseaza un Lock / RLock, este creat automat un RLock.
 
 Exemplu de folosire:
 ```python
@@ -27,3 +27,6 @@ make_an_item_available()
 cv.notify()
 cv.release()
 ```
+
+- cand se folosesc `wait()`, `notify()` si `notifyAll()`, lock-ul din Condition ramane blocat, pana cand se apeleaza `release()`.
+- cand se apeleaza `notify()` si / sau `notifyAll()`, thread-urile nu ajung imediat in starea running, ele asteapta sa lock-ul sa fie released cu `release()`.
