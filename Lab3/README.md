@@ -4,7 +4,7 @@ Un event reprezinta un element de sincronizare, care functioneaza in felul urmat
 - thread-urile se blocheaza voluntar (sunt in starea waiting) pana cand un alt thread semnaleaza aparitia unui eveniment - o conditie sa aiba valoarea true (comportament similar cu bariera) - pe scurt, un event functioneaza ca un wake-up al thread-urilor din starea waiting
 - un event poate inlocui un semafor (mai multe thread-uri pot fi blocate si deblocate in acelasi timp)
 ## Condition
-- un condition functioneaza similar cu un event, adica thread-urile sunt blocate in mod voluntar (se afla in waiting) pana cand se semnaleaza o conditie adevarata de catre un thread.
+- un condition functioneaza similar cu un event, adica thread-urile sunt blocate in mod voluntar (se afla in waiting) pana cand se semnaleaza aparitia unei conditii de catre un thread.
 
 - diferenta fata de un event este ca aici se foloseste un Lock (sau RLock). La constructor se poate da ca parametru un Lock sau un RLock (mai ales daca se creeaza mai multe obiecte Condition, cu un lock partajat). Daca la constructor nu se paseaza un Lock / RLock, este creat automat un RLock.
 
