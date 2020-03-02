@@ -1,7 +1,7 @@
 # Laboratorul 3 - Python - multithreading - partea 2
 ## Event
 Un event reprezinta un element de sincronizare, care functioneaza in felul urmator:
-- thread-urile se blocheaza voluntar (sunt in starea waiting) pana cand un alt thread semnaleaza aparitia unui eveniment - o conditie sa aiba valoarea true (comportament similar cu bariera) - pe scurt, un event functioneaza ca un wake-up al thread-urilor din starea waiting
+- thread-urile se blocheaza voluntar (sunt in starea waiting) pana cand un alt thread semnaleaza aparitia unui eveniment (comportament similar cu bariera) - pe scurt, un event functioneaza ca un wake-up al thread-urilor din starea waiting
 - un event poate inlocui un semafor (mai multe thread-uri pot fi blocate si deblocate in acelasi timp)
 ## Condition
 - un condition functioneaza similar cu un event, adica thread-urile sunt blocate in mod voluntar (se afla in waiting) pana cand se semnaleaza aparitia unei conditii de catre un thread.
