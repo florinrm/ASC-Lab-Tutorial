@@ -1,3 +1,6 @@
+from functools import reduce
+
+
 def main():
     l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     
@@ -11,8 +14,13 @@ def main():
     for e in l:
         l2.append(e + 2)
 
+    s = 0
+    for e in l:
+        s += e
+
     print(l1)
     print(l2)
+    print("Sum = %d" % s)
 
     l1.clear()
     l2.clear()
@@ -21,9 +29,11 @@ def main():
     # lambda functions
     l1 = list(filter(lambda x: x % 2 == 0, l))
     l2 = list(map(lambda x: x + 2, l))
+    s = reduce(lambda x, y: x + y, l)
 
     print(l1)
     print(l2)
+    print("Sum = %d" % s)
 
     l1.clear()
     l2.clear()
@@ -35,6 +45,6 @@ def main():
     print(l1)
     print(l2)
 
+
 if __name__ == '__main__':
     main()
-    

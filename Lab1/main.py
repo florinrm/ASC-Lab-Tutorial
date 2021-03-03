@@ -1,11 +1,14 @@
+# functie goala (body gol)
 def func():
     pass
+
 
 def check_if_exists(id, d):
     for key in d.keys():
         if key == id:
             return True
     return False
+
 
 def main():
     print('Choose one of the following options')
@@ -20,26 +23,26 @@ def main():
     while True:
         if n == 1:
             print('Type the ID')
-            id = int(input())
+            id_user = int(input())
             print('Type the name')
             name = input()
 
-            if check_if_exists(id, register):
-                print('ID %d already exists' %(id))
+            if check_if_exists(id_user, register):
+                print('ID %d already exists' % id_user)
             else:
-                register[id] = name
+                register[id_user] = name
         elif n == 2:
             print('Type the ID')
-            id = int(input())
-            if check_if_exists(id, register):
-                print('Employee %d: %s' %(id, register[id]))
+            id_user = int(input())
+            if check_if_exists(id_user, register):
+                print('Employee %d: %s' % (id_user, register[id_user]))
             else:
                 print('Employee doesn\'t exist')
         elif n == 3:
             print('Type the ID')
-            id = int(input())
-            if check_if_exists(id, register):
-                del register[id]
+            id_user = int(input())
+            if check_if_exists(id_user, register):
+                del register[id_user]
             else:
                 print('Employee doesn\'t exist')
         elif n == 4:
@@ -47,7 +50,7 @@ def main():
             break
         else:
             print('Option not valid, choose a valid one please')
-        
+
         print('Choose one of the following options')
         print('1: Register a new employee')
         print('2: Search for an employee')
@@ -55,6 +58,6 @@ def main():
         print('4: Quit')
         n = int(input())
 
+
 if __name__ == '__main__':
     main()
-    
