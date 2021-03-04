@@ -3,6 +3,14 @@ def func():
     pass
 
 
+def inc(n):
+    n += 1
+
+
+def edit_list(l):
+    l.append([1, 2, 3, 4, 5])
+
+
 def check_if_exists(id, d):
     for key in d.keys():
         if key == id:
@@ -57,6 +65,14 @@ def main():
         print('3: Delete an employee')
         print('4: Quit')
         n = int(input())
+
+    p = 0
+    inc(p)
+    print(p)
+
+    l = [1, 2, 3, 4]
+    edit_list(l)
+    print(l)
 
 
 if __name__ == '__main__':
