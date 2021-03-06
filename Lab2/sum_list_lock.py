@@ -21,6 +21,11 @@ class MyThread(Thread):
             lock.acquire()
             total_sum += lst[i]
             lock.release()
+            '''
+            # alternativ
+            with lock:
+                total_sum += lst[i]
+            '''
 
 
 def main():
