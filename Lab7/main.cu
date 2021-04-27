@@ -5,6 +5,12 @@
 // functie kernel prin care adunam doi arrays
 __global__ void vector_add(float *x, float *y, int n) {
     // calculam indexul - echivalent cu for-ul
+
+    // threadId.x - id-ul unui thread blocul actual
+	// blockDim.x - dimensiunea blocului actual
+	// blockIdx.x - id-ul blocului actual
+
+
     int i = threadIdx.x + blockDim.x * blockIdx.x;
 
     if (i < n) {
