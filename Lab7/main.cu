@@ -10,7 +10,6 @@ __global__ void vector_add(float *x, float *y, int n) {
 	// blockDim.x - dimensiunea blocului actual
 	// blockIdx.x - id-ul blocului actual
 
-
     int i = threadIdx.x + blockDim.x * blockIdx.x;
 
     if (i < n) {
