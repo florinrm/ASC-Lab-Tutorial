@@ -1,62 +1,42 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE 10
+void vector_add(float *x, float *y, int n) {
+    for (int i = 0; i < n; i++) {
+        x[i] = x[i] + y[i];
+    }
+}
 
-struct first_struct {
-    int a;
-    long b;
-    int c;
-};
+int main(void)
+{
+    const int num_elements = 1 << 16;
+    const int num_bytes = num_elements * sizeof(float);
 
-struct second_struct {
-    int a;
-    int b;
-    long c;
-};
+    float *x, *y;
 
-struct third_struct {
-    int a;
-    long b;
-    int c;
-} __attribute__((packed)); 
+    x = (float *) malloc(num_bytes);
+    y = (float *) malloc(num_bytes);
 
-int main(int argc, char **argv) {
-    struct first_struct f1;
-    f1.a = 10;
-    f1.b = 10;
-    f1.c = 10;
-
-    struct second_struct f2;
-    f2.a = 10;
-    f2.b = 10;
-    f2.c = 10;
-
-    struct third_struct f3;
-    f3.a = 10;
-    f3.b = 10;
-    f3.c = 10;
-
-    printf("int size: %ld\n", sizeof(int));
-    printf("long size: %ld\n", sizeof(long));
-
-    printf("first_struct size: %ld\n", sizeof(f1));  // 4 + 4 (padding) + 8 + 4 + 4 (padding)
-    printf("second_struct size: %ld\n", sizeof(f2)); // 4 + 4 + 8
-    printf("third_struct size: %ld\n", sizeof(f3)); // 4 + 4 + 8
-
-    struct second_struct *struct_arr = malloc(SIZE * sizeof(struct second_struct));
-    for (int i = 0; i < SIZE; i++) {
-        struct_arr[i].a = i;
-        struct_arr[i].b = i + 1;
-        struct_arr[i].c = i + 2;
+    // verificam daca alocarea a fost cu succes
+    if (x == NULL || y == NULL) {
+        printf("Couldn't allocate memory\n");
+        return 0;
     }
 
-    int *arr = (int*) struct_arr;
-    for (int i = 0; i < 4 * SIZE; i++) {
-        printf("%d ", arr[i]);
+    // se initializeaza x si y
+    for (int i = 0; i < num_elements; i++) {
+        x[i] = 4;
+        y[i] = 2;
     }
 
-    printf("\n");
+    vector_add(x, y, num_elements);
 
+    for (int i = 0; i < 10; ++i) {
+        printf("Result %d: %1.1f + %1.1f = %1.3f\n", i, x[i] - y[i], y[i], x[i]);
+    }
+
+    free(x);
+    free(y);
     return 0;
 }

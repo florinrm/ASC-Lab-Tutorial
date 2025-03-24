@@ -1,6 +1,12 @@
 build:
-	nvcc main.cu -o main_cuda -lm
-	nvcc debug.cu -o debug
-	
+	gcc -g main.c -o main -Wall
+	gcc -g matrix.c -o matrix -Wall
+
+run_main:
+	./main
+
+run_matrix:
+	./matrix
+
 clean:
-	rm main_cuda debug
+	rm main matrix

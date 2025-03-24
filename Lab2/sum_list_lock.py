@@ -18,14 +18,14 @@ class MyThread(Thread):
         end = min(len(lst), ((self.index + 1) * ceil(len(lst) / NO_THREADS)))
 
         for i in range(start, end):
-            lock.acquire()
-            total_sum += lst[i]
-            lock.release()
-            '''
+            # lock.acquire()
+            # total_sum += lst[i]
+            # lock.release()
+
             # alternativ
             with lock:
                 total_sum += lst[i]
-            '''
+
 
 
 def main():
